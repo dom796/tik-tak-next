@@ -8,25 +8,39 @@ import { ErrorMessage } from "../ui/submit-button copy";
 import { signInAction, SignInFormState } from "../actions/sing-in";
 import { useActionState } from "@/shared/lib/react";
 import { routes } from "@/kernel/routes";
+import { useTranslations } from "next-intl";
 
 export function SignInForm() {
+  const t = useTranslations("auth.signIn");
   const [formState, action, isPending] = useActionState(
     signInAction,
     {} as SignInFormState,
   );
 
+  const errorMap: Record<string, string> = {
+    "invalid-credentials": t("invalidCredentials"),
+  };
+
   return (
     <AuthFormLayout
-      title="Sign In"
-      description="Welcome back! Please sign in to your account"
+      title={t("title")}
+      description={t("description")}
       action={action}
       fields={<AuthFields {...formState} />}
-      actions={<SubmitButton isPending={isPending}> Sign In</SubmitButton>}
-      error={<ErrorMessage error={formState.errors?._errors} />}
+      actions={<SubmitButton isPending={isPending}>{t("button")}</SubmitButton>}
+      error={
+        <ErrorMessage
+          error={
+            formState.errors?._errors
+              ? errorMap[formState.errors._errors] ?? formState.errors._errors
+              : undefined
+          }
+        />
+      }
       link={
         <BottomLink
-          text="Don't have an account?"
-          linkText="Sign up"
+          text={t("noAccount")}
+          linkText={t("signUpLink")}
           url={routes.signUp()}
         />
       }
