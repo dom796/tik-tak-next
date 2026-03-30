@@ -1,6 +1,7 @@
 import { sessionService } from "@/entities/user/server";
 import { routes } from "@/kernel/routes";
 import { Button } from "@/shared/ui/button";
+import { ThemeToggle } from "@/shared/ui/theme-toggle";
 import { redirect } from "next/navigation";
 
 import React from "react";
@@ -17,6 +18,7 @@ export default async function PrivateLayout({
       <header className="px-10 py-4 flex flex-row gap-4 justify-between border-b border-b-primary/50 items-center">
         <div className="text-xl">Tik-tak-toe-online</div>
         <div className="flex gap-4 items-center">
+          <ThemeToggle />
           <div className="text-lg">{session.login}</div>
           <form
             action={async () => {
