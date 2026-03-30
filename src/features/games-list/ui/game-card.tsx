@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardHeader,
@@ -6,6 +8,7 @@ import {
   CardFooter,
 } from "@/shared/ui/card";
 import React from "react";
+import { useTranslations } from "next-intl";
 
 export function GameCard({
   login,
@@ -16,12 +19,13 @@ export function GameCard({
   rating: number;
   actions: React.ReactNode;
 }) {
+  const t = useTranslations("games");
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Игра с {login}</CardTitle>
+        <CardTitle>{t("gameWith", { login })}</CardTitle>
       </CardHeader>
-      <CardContent>Рейтинг: {rating}</CardContent>
+      <CardContent>{t("rating", { rating })}</CardContent>
       <CardFooter>{actions}</CardFooter>
     </Card>
   );

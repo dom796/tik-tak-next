@@ -5,15 +5,17 @@ import { GameCard } from "../ui/game-card";
 import { CreateButton } from "./create-button";
 import { Button } from "@/shared/ui/button";
 import { routes } from "@/kernel/routes";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { GameDomain } from "@/entities/game";
 import { useEventsSource } from "@/shared/lib/sse/client";
+import { useTranslations } from "next-intl";
 
 export function GamesListClient({
   games,
 }: {
   games: GameDomain.GameIdleEntity[];
 }) {
+  const t = useTranslations("games");
   const { dataStream: gamesStream = games } = useEventsSource<
     GameDomain.GameIdleEntity[]
   >(routes.gamesStream());
@@ -27,7 +29,7 @@ export function GamesListClient({
           rating={game.creator.rating}
           actions={
             <Link href={routes.game(game.id)}>
-              <Button>Подключиться</Button>
+              <Button>{t("join")}</Button>
             </Link>
           }
         />

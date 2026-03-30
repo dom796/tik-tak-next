@@ -2,12 +2,13 @@
 
 import { Button } from "@/shared/ui/button";
 import { createGameAction } from "../actions/create-game";
-
 import { mapLeft, right } from "@/shared/lib/either";
 import { useActionState } from "@/shared/lib/react";
 import { startTransition } from "react";
+import { useTranslations } from "next-intl";
 
 export function CreateButton() {
+  const t = useTranslations("games");
   const [state, dispatch, isPending] = useActionState(
     createGameAction,
     right(undefined),
@@ -21,12 +22,12 @@ export function CreateButton() {
         state,
         (e) =>
           ({
-            ["can-create-only-one-game"]: "Вы можете создать только одну игру",
-            ["user-not-found"]: "Пользователя нету",
+            ["can-create-only-one-game"]: t("oneGameLimit"),
+            ["user-not-found"]: t("userNotFound"),
           })[e],
       )}
     >
-      Создать игру
+      {t("createGame")}
     </Button>
   );
 }
