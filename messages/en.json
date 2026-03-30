@@ -1,0 +1,45 @@
+{
+  "auth": {
+    "signIn": {
+      "title": "Sign In",
+      "description": "Welcome back! Please sign in to your account",
+      "button": "Sign In",
+      "noAccount": "Don't have an account?",
+      "signUpLink": "Sign up",
+      "invalidCredentials": "Invalid login or password"
+    },
+    "signUp": {
+      "title": "Sign Up",
+      "description": "Create your account to get started",
+      "button": "Sign Up",
+      "hasAccount": "Already have an account?",
+      "signInLink": "Sign in",
+      "loginExists": "User with this login already exists"
+    },
+    "fields": {
+      "loginLabel": "Login",
+      "loginPlaceholder": "Enter your login",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password"
+    }
+  },
+  "games": {
+    "title": "Games",
+    "createGame": "Create Game",
+    "join": "Join",
+    "oneGameLimit": "You can only create one game",
+    "userNotFound": "User not found",
+    "gameWith": "Game with {login}",
+    "rating": "Rating: {rating}"
+  },
+  "game": {
+    "waitingForPlayer": "Waiting for player",
+    "turn": "Turn: {symbol}",
+    "winner": "Winner: {symbol}",
+    "draw": "Draw"
+  },
+  "common": {
+    "appName": "Tik-Tak-Toe Online",
+    "signOut": "Sign Out"
+  }
+}

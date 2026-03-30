@@ -1,0 +1,45 @@
+{
+  "auth": {
+    "signIn": {
+      "title": "Вход",
+      "description": "С возвращением! Войдите в свой аккаунт",
+      "button": "Войти",
+      "noAccount": "Нет аккаунта?",
+      "signUpLink": "Зарегистрироваться",
+      "invalidCredentials": "Неверный логин или пароль"
+    },
+    "signUp": {
+      "title": "Регистрация",
+      "description": "Создайте аккаунт, чтобы начать",
+      "button": "Зарегистрироваться",
+      "hasAccount": "Уже есть аккаунт?",
+      "signInLink": "Войти",
+      "loginExists": "Пользователь с таким логином уже существует"
+    },
+    "fields": {
+      "loginLabel": "Логин",
+      "loginPlaceholder": "Введите логин",
+      "passwordLabel": "Пароль",
+      "passwordPlaceholder": "Введите пароль"
+    }
+  },
+  "games": {
+    "title": "Игры",
+    "createGame": "Создать игру",
+    "join": "Подключиться",
+    "oneGameLimit": "Вы можете создать только одну игру",
+    "userNotFound": "Пользователь не найден",
+    "gameWith": "Игра с {login}",
+    "rating": "Рейтинг: {rating}"
+  },
+  "game": {
+    "waitingForPlayer": "Ожидание игрока",
+    "turn": "Ход: {symbol}",
+    "winner": "Победитель: {symbol}",
+    "draw": "Ничья"
+  },
+  "common": {
+    "appName": "Крестики-нолики онлайн",
+    "signOut": "Выйти"
+  }
+}
