@@ -2,7 +2,7 @@
 
 import { sessionService, verifyUserPassword } from "@/entities/user/server";
 
-import { redirect } from "next/navigation";
+import { redirect } from "@/i18n/navigation";
 
 import { z } from "zod";
 
@@ -48,7 +48,7 @@ export const signInAction = async (
   }
 
   const errors = {
-    "wron-login-or-password": "Неверный логин или пароль",
+    "wron-login-or-password": "invalid-credentials",
   }[verifyUserResult.error];
 
   return {

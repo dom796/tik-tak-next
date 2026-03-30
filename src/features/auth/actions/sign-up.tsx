@@ -1,7 +1,7 @@
 "use server";
 
 import { createUser, sessionService } from "@/entities/user/server";
-import { redirect } from "next/navigation";
+import { redirect } from "@/i18n/navigation";
 
 import { z } from "zod";
 
@@ -47,7 +47,7 @@ export const signUpAction = async (
   }
 
   const errors = {
-    "user-login-exists": "Пользователь с таким login существует",
+    "user-login-exists": "login-exists",
   }[createUserResult.error];
 
   return {
