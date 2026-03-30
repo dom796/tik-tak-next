@@ -1,16 +1,20 @@
 import { sessionService } from "@/entities/user/server";
-import { routes } from "@/kernel/routes";
 import { Button } from "@/shared/ui/button";
 import { ThemeToggle } from "@/shared/ui/theme-toggle";
-import { redirect } from "next/navigation";
-
+import { redirect } from "@/i18n/navigation";
+import { setRequestLocale } from "next-intl/server";
 import React from "react";
 
 export default async function PrivateLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const { session } = await sessionService.verifySession();
 
   return (
@@ -24,7 +28,7 @@ export default async function PrivateLayout({
             action={async () => {
               "use server";
               sessionService.deleteSession();
-              redirect(routes.signIn());
+              redirect("/");
             }}
           >
             <Button>Sign out</Button>
