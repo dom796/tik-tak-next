@@ -9,15 +9,15 @@ export function LocaleSwitcher() {
   const pathname = usePathname();
 
   return (
-    <div className="flex gap-1 text-sm">
+    <div className="flex gap-1 text-base">
       {(["en", "ru"] as const).map((l) => (
         <button
           key={l}
           onClick={() => router.replace(pathname, { locale: l })}
           className={
             locale === l
-              ? "font-bold"
-              : "opacity-50 hover:opacity-100 transition-opacity"
+              ? "font-bold px-3 py-2"
+              : "opacity-50 hover:opacity-100 transition-opacity px-3 py-2"
           }
         >
           {l.toUpperCase()}
