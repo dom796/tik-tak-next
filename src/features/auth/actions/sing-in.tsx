@@ -28,13 +28,13 @@ export const signInAction = async (
   const result = formDataSchema.safeParse(data);
 
   if (!result.success) {
-    const formatedErrors = result.error.format();
+    const formatedErrors = z.flattenError(result.error);
     return {
       formData,
       errors: {
-        login: formatedErrors.login?._errors.join(", "),
-        password: formatedErrors.password?._errors.join(", "),
-        _errors: formatedErrors._errors.join(", "),
+        login: formatedErrors.fieldErrors.login?.join(", "),
+        password: formatedErrors.fieldErrors.password?.join(", "),
+        _errors: formatedErrors.formErrors.join(", "),
       },
     };
   }
