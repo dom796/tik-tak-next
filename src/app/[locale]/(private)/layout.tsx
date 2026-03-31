@@ -2,7 +2,7 @@ import { sessionService } from "@/entities/user/server";
 import { Button } from "@/shared/ui/button";
 import { ThemeToggle } from "@/shared/ui/theme-toggle";
 import { LocaleSwitcher } from "@/shared/ui/locale-switcher";
-import { redirect } from "@/i18n/navigation";
+import { redirect } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import React from "react";
 

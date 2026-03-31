@@ -14,7 +14,7 @@ export function GameStatus({ game }: { game: GameDomain.GameEntity }) {
       return <div className="text-lg">{t("turn", { symbol: currentSymbol })}</div>;
     }
     case "gameOver": {
-      const currentSymbol = GameDomain.getPlayerSymbol(game.winner, game);
+      const currentSymbol = GameDomain.getPlayerSymbol(game.winner, game) ?? "";
       return <div className="text-lg">{t("winner", { symbol: currentSymbol })}</div>;
     }
     case "gameOverDraw":

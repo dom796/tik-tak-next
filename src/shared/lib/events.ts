@@ -1,6 +1,6 @@
-import amqplib, { Connection } from "amqplib";
+import amqplib, { ChannelModel, ConsumeMessage } from "amqplib";
 
-let connection: Connection | undefined = undefined;
+let connection: ChannelModel | undefined = undefined;
 export class EventsChanel {
   constructor(private channelName: string) {}
 
@@ -41,7 +41,7 @@ export class EventsChanel {
     const queue = await channel.assertQueue("", { exclusive: true });
     await channel.bindQueue(queue.queue, this.channelName, key);
 
-    const consumer = await channel.consume(queue.queue, async (data) => {
+    const consumer = await channel.consume(queue.queue, async (data: ConsumeMessage | null) => {
       await listener(JSON.parse(data!.content.toString()));
       channel.ack(data!);
     });

@@ -1,7 +1,7 @@
 "use server";
 
 import { createUser, sessionService } from "@/entities/user/server";
-import { redirect } from "@/i18n/navigation";
+import { redirect } from "next/navigation";
 
 import { z } from "zod";
 
