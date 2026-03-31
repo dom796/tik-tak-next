@@ -7,7 +7,7 @@ import {
   GameOverEntity,
   PlayerEntity,
 } from "../domain";
-import { Game, GamePlayer, Prisma, User } from "@prisma/client";
+import { Game, GamePlayer, Prisma, User } from "@/generated/prisma/client";
 import { z } from "zod";
 import { GameId } from "@/kernel/ids";
 
