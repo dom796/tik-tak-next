@@ -163,10 +163,15 @@ export const dbPlayerToPlayer = (
   };
 };
 
+async function deleteGame(gameId: GameId) {
+  await prisma.game.delete({ where: { id: gameId } });
+}
+
 export const gameRepository = {
   gamesList,
   createGame,
   getGame,
   startGame,
   saveGame,
+  deleteGame,
 };
