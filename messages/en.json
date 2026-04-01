@@ -36,7 +36,8 @@
     "waitingForPlayer": "Waiting for player",
     "turn": "Turn: {symbol}",
     "winner": "Winner: {symbol}",
-    "draw": "Draw"
+    "draw": "Draw",
+    "leaveGame": "Leave Game"
   },
   "common": {
     "appName": "Tik-Tak-Toe Online",
