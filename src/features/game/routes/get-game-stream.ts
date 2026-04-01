@@ -1,4 +1,9 @@
-import { gameEvents, getGameById, surrenderGame } from "@/entities/game/server";
+import {
+  cancelGame,
+  gameEvents,
+  getGameById,
+  surrenderGame,
+} from "@/entities/game/server";
 import { GameId } from "@/kernel/ids";
 import { sseStream } from "@/shared/lib/sse/server";
 import { NextRequest } from "next/server";
@@ -28,7 +33,11 @@ export async function getGameStream(
   });
 
   addCloseListener(async () => {
-    await surrenderGame(id, user);
+    if (game.status === "inProgress") {
+      await surrenderGame(id, user);
+    } else if (game.status === "idle" && game.creator.id === user.id) {
+      await cancelGame(id, user);
+    }
     unwatch();
   });
 
