@@ -109,12 +109,9 @@ function dbGameToGameEntity(
     winner?: (GamePlayer & { user: User }) | null;
   },
 ): GameEntity {
-  console.log({ game }, 2);
   const players = game.players
     .sort((a, b) => a.index - b.index)
     .map(dbPlayerToPlayer);
-
-  console.log({ game }, 3);
 
   switch (game.status) {
     case "idle": {
