@@ -3,13 +3,14 @@ import React from "react";
 
 export function GameLayout({
   status,
-
   field,
   players,
+  leaveButton,
 }: {
   players?: React.ReactNode;
   status?: React.ReactNode;
   field?: React.ReactNode;
+  leaveButton?: React.ReactNode;
 }) {
   return (
     <Card>
@@ -20,6 +21,9 @@ export function GameLayout({
         {players}
         {status}
         <div className="flex items-center justify-center">{field}</div>
+        {leaveButton && (
+          <div className="flex justify-end">{leaveButton}</div>
+        )}
       </CardContent>
     </Card>
   );
