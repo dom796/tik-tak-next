@@ -36,7 +36,8 @@
     "waitingForPlayer": "Ожидание игрока",
     "turn": "Ход: {symbol}",
     "winner": "Победитель: {symbol}",
-    "draw": "Ничья"
+    "draw": "Ничья",
+    "leaveGame": "Покинуть игру"
   },
   "common": {
     "appName": "Крестики-нолики онлайн",
