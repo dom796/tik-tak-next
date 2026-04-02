@@ -28,14 +28,16 @@ export async function getGameStream(
 
   write(game);
 
+  let latestGame = game;
   const unwatch = await gameEvents.addGameChangedListener(game.id, (event) => {
+    latestGame = event.data;
     write(event.data);
   });
 
   addCloseListener(async () => {
-    if (game.status === "inProgress") {
+    if (latestGame.status === "inProgress") {
       await surrenderGame(id, user);
-    } else if (game.status === "idle" && game.creator.id === user.id) {
+    } else if (latestGame.status === "idle" && latestGame.creator.id === user.id) {
       await cancelGame(id, user);
     }
     unwatch();
