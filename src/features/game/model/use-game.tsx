@@ -1,4 +1,5 @@
 import { GameDomain } from "@/entities/game";
+import { useRouter } from "@/i18n/navigation";
 import { GameId } from "@/kernel/ids";
 import { routes } from "@/kernel/routes";
 import { useEventsSource } from "@/shared/lib/sse/client";
@@ -8,6 +9,7 @@ import { gameStepAction } from "../actions/game-step";
 import { surrenderGameAction } from "../actions/game-surrender";
 
 export function useGame(gameId: GameId, player: GameDomain.PlayerEntity) {
+  const router = useRouter();
   const { isPending, dataStream: game } =
     useEventsSource<GameDomain.GameEntity>(routes.gameStream(gameId), () => {
       dispatchOptimistic(undefined);
@@ -40,8 +42,12 @@ export function useGame(gameId: GameId, player: GameDomain.PlayerEntity) {
   const cancel = () => {
     setIsPendingCancel(true);
     startTransition(async () => {
-      await cancelGameAction({ gameId });
-      setIsPendingCancel(false);
+      const result = await cancelGameAction({ gameId });
+      if (result.type === "right") {
+        router.push("/");
+      } else {
+        setIsPendingCancel(false);
+      }
     });
   };
 
