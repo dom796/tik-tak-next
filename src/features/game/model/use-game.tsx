@@ -23,10 +23,10 @@ export function useGame(gameId: GameId, player: GameDomain.PlayerEntity) {
       if (result.type === "right") {
         dispatchOptimistic(result.value);
       }
+      startTransition(async () => {
+        await gameStepAction({ gameId, index });
+      });
     }
-    startTransition(async () => {
-      await gameStepAction({ gameId, index });
-    });
   };
 
   const surrender = () => {
