@@ -3,6 +3,7 @@ import { GameId } from "@/kernel/ids";
 import { routes } from "@/kernel/routes";
 import { useEventsSource } from "@/shared/lib/sse/client";
 import { startTransition, useState } from "react";
+import { cancelGameAction } from "../actions/game-cancel";
 import { gameStepAction } from "../actions/game-step";
 import { surrenderGameAction } from "../actions/game-surrender";
 
@@ -14,6 +15,7 @@ export function useGame(gameId: GameId, player: GameDomain.PlayerEntity) {
   const [optimisticGame, dispatchOptimistic] =
     useState<GameDomain.GameEntity>();
   const [isPendingSurrender, setIsPendingSurrender] = useState(false);
+  const [isPendingCancel, setIsPendingCancel] = useState(false);
 
   const step = (index: number) => {
     if (game && game.status === "inProgress") {
@@ -35,11 +37,21 @@ export function useGame(gameId: GameId, player: GameDomain.PlayerEntity) {
     });
   };
 
+  const cancel = () => {
+    setIsPendingCancel(true);
+    startTransition(async () => {
+      await cancelGameAction({ gameId });
+      setIsPendingCancel(false);
+    });
+  };
+
   return {
     game: optimisticGame ?? game,
     step,
     isPending,
     surrender,
     isPendingSurrender,
+    cancel,
+    isPendingCancel,
   };
 }
