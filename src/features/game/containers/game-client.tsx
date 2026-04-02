@@ -9,6 +9,7 @@ import { useGame } from "../model/use-game";
 import { GameDomain } from "@/entities/game";
 import { Button } from "@/shared/ui/button";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export function GameClient({
   defaultGame,
@@ -37,12 +38,19 @@ export function GameClient({
     </Button>
   ) : undefined;
 
+  const backButton = isGameOver ? (
+    <Link href="/">
+      <Button variant="outline">{t("backToGames")}</Button>
+    </Link>
+  ) : undefined;
+
   return (
     <GameLayout
       players={<GamePlayers game={game} />}
       status={<GameStatus game={game} />}
       field={<GameField game={game} onCellClick={step} />}
       leaveButton={leaveButton}
+      backButton={backButton}
     />
   );
 }
