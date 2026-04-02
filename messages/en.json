@@ -37,7 +37,8 @@
     "turn": "Turn: {symbol}",
     "winner": "Winner: {symbol}",
     "draw": "Draw",
-    "leaveGame": "Leave Game"
+    "leaveGame": "Leave Game",
+    "cancelGame": "Cancel Game"
   },
   "common": {
     "appName": "Tik-Tak-Toe Online",
