@@ -33,6 +33,7 @@
     "rating": "Rating: {rating}"
   },
   "game": {
+    "gameTitle": "Tic-Tac-Toe 3x3",
     "waitingForPlayer": "Waiting for player",
     "turn": "Turn: {symbol}",
     "winner": "Winner: {symbol}",
