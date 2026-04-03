@@ -37,6 +37,7 @@
     "waitingForPlayer": "Ожидание игрока",
     "turn": "Ход: {symbol}",
     "winner": "Победитель: {symbol}",
+    "winnerLogin": "Победитель: {login}",
     "draw": "Ничья",
     "leaveGame": "Покинуть игру",
     "cancelGame": "Отменить игру",
