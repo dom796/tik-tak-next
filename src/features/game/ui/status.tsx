@@ -11,7 +11,8 @@ export function GameStatus({ game }: { game: GameDomain.GameEntity }) {
       return <div className="text-lg">{t("waitingForPlayer")}</div>;
     case "inProgress": {
       const currentSymbol = GameDomain.getGameCurrentSymbol(game);
-      return <div className="text-lg">{t("turn", { symbol: currentSymbol })}</div>;
+      const currentPlayer = currentSymbol === GameDomain.GameSymbol.X ? game.players[0] : game.players[1];
+      return <div className="text-lg">{t("turn", { login: currentPlayer.login, symbol: currentSymbol })}</div>;
     }
     case "gameOver": {
       return <div className="text-lg">{t("winnerLogin", { login: game.winner.login })}</div>;

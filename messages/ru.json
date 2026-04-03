@@ -35,7 +35,7 @@
   "game": {
     "gameTitle": "Крестики-нолики 3x3",
     "waitingForPlayer": "Ожидание игрока",
-    "turn": "Ход: {symbol}",
+    "turn": "Ход: {login} ({symbol})",
     "winner": "Победитель: {symbol}",
     "winnerLogin": "Победитель: {login}",
     "draw": "Ничья",

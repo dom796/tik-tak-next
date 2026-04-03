@@ -35,7 +35,7 @@
   "game": {
     "gameTitle": "Tic-Tac-Toe 3x3",
     "waitingForPlayer": "Waiting for player",
-    "turn": "Turn: {symbol}",
+    "turn": "Turn: {login} ({symbol})",
     "winner": "Winner: {symbol}",
     "winnerLogin": "Winner: {login}",
     "draw": "Draw",
