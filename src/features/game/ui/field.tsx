@@ -17,7 +17,7 @@ export function GameField({
           onClick={() => onCellClick?.(index)}
           key={index}
           disabled={!isInteractive || symbol !== null}
-          className="border border-primary w-10 h-10 flex justify-center items-center disabled:opacity-60 disabled:cursor-not-allowed"
+          className="border border-primary w-20 h-20 text-2xl flex justify-center items-center disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {symbol ?? ""}
         </button>
