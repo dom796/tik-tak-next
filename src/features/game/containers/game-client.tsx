@@ -27,6 +27,7 @@ export function GameClient({
     game.players.some((p) => p.id === player.id);
   const isGameOver =
     game.status === "gameOver" || game.status === "gameOverDraw";
+  const winningLine = game.status === "gameOver" ? GameDomain.getWinningLine(game.field) : null;
 
   const leaveButton = isCreator ? (
     <Button variant="destructive" onClick={cancel} disabled={isPendingCancel}>
@@ -49,7 +50,7 @@ export function GameClient({
       title={t("gameTitle")}
       players={<GamePlayers game={game} />}
       status={<GameStatus game={game} />}
-      field={<GameField game={game} onCellClick={step} />}
+      field={<GameField game={game} onCellClick={step} winningLine={winningLine} />}
       leaveButton={leaveButton}
       backButton={backButton}
     />

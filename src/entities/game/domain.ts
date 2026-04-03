@@ -130,8 +130,8 @@ function isDraw(squares: Field) {
   return false;
 }
 
-function calculateWinner(squares: Field) {
-  const lines = [
+export function getWinningLine(squares: Field): [number, number, number] | null {
+  const lines: [number, number, number][] = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -141,11 +141,15 @@ function calculateWinner(squares: Field) {
     [0, 4, 8],
     [2, 4, 6],
   ];
-  for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
+  for (const [a, b, c] of lines) {
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return [a, b, c];
     }
   }
   return null;
+}
+
+function calculateWinner(squares: Field) {
+  const line = getWinningLine(squares);
+  return line ? squares[line[0]] : null;
 }
