@@ -53,9 +53,9 @@ export const GameSymbol = {
 export const getGameCurrentSymbol = (
   game: GameInProgressEntity | GameOverEntity | GameOverDrawEntity,
 ) => {
-  const sybmolds = game.field.filter((s) => s !== null).length;
+  const symbolsCount = game.field.filter((s) => s !== null).length;
 
-  return sybmolds % 2 === 0 ? GameSymbol.X : GameSymbol.O;
+  return symbolsCount % 2 === 0 ? GameSymbol.X : GameSymbol.O;
 };
 
 export const getNextSymbol = (sameSymbol: GameSymbol) => {
