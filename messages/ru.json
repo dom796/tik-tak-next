@@ -33,6 +33,7 @@
     "rating": "Рейтинг: {rating}"
   },
   "game": {
+    "gameTitle": "Крестики-нолики 3x3",
     "waitingForPlayer": "Ожидание игрока",
     "turn": "Ход: {symbol}",
     "winner": "Победитель: {symbol}",
