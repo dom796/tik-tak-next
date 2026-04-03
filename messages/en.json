@@ -37,6 +37,7 @@
     "waitingForPlayer": "Waiting for player",
     "turn": "Turn: {symbol}",
     "winner": "Winner: {symbol}",
+    "winnerLogin": "Winner: {login}",
     "draw": "Draw",
     "leaveGame": "Leave Game",
     "cancelGame": "Cancel Game",
