@@ -34,8 +34,12 @@ export function useGame(gameId: GameId, player: GameDomain.PlayerEntity) {
   const surrender = () => {
     setIsPendingSurrender(true);
     startTransition(async () => {
-      await surrenderGameAction({ gameId });
-      setIsPendingSurrender(false);
+      const result = await surrenderGameAction({ gameId });
+      if (result.type === "right") {
+        router.push("/");
+      } else {
+        setIsPendingSurrender(false);
+      }
     });
   };
 
