@@ -2,12 +2,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/shared/ui/card";
 import React from "react";
 
 export function GameLayout({
+  title,
   status,
   field,
   players,
   leaveButton,
   backButton,
 }: {
+  title?: React.ReactNode;
   players?: React.ReactNode;
   status?: React.ReactNode;
   field?: React.ReactNode;
@@ -17,7 +19,7 @@ export function GameLayout({
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Крестики нолики 3x3</CardTitle>
+        <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         {players}

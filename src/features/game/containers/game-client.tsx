@@ -46,6 +46,7 @@ export function GameClient({
 
   return (
     <GameLayout
+      title={t("gameTitle")}
       players={<GamePlayers game={game} />}
       status={<GameStatus game={game} />}
       field={<GameField game={game} onCellClick={step} />}
