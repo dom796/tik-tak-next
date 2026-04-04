@@ -17,9 +17,9 @@ export function GameLayout({
   backButton?: React.ReactNode;
 }) {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
+    <Card className="shadow-md">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-center">{title}</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         {players}
