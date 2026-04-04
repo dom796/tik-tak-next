@@ -21,7 +21,7 @@ export function GameCard({
 }) {
   const t = useTranslations("games");
   return (
-    <Card>
+    <Card className="transition-shadow hover:shadow-md">
       <CardHeader>
         <CardTitle>{t("gameWith", { login })}</CardTitle>
       </CardHeader>
