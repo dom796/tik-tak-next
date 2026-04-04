@@ -20,8 +20,8 @@ export default async function PrivateLayout({
 
   return (
     <div className="flex flex-col grow">
-      <header className="px-10 py-4 flex flex-row gap-4 justify-between border-b border-b-primary/50 items-center">
-        <div className="text-xl">Tik-tak-toe-online</div>
+      <header className="sticky top-0 z-10 px-10 py-4 flex flex-row gap-4 justify-between border-b border-b-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 items-center">
+        <div className="text-xl font-bold tracking-tight">Tik-tak-toe-online</div>
         <div className="flex gap-4 items-center">
           <LocaleSwitcher />
           <ThemeToggle />
