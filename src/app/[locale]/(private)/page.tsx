@@ -11,8 +11,8 @@ export default async function Home({
   const t = await getTranslations("games");
 
   return (
-    <div className="flex flex-col gap-8 container mx-auto pt-[100px]">
-      <h1 className="text-4xl font-bold">{t("title")}</h1>
+    <div className="flex flex-col gap-6 container mx-auto pt-10 px-4">
+      <h1 className="text-3xl font-bold tracking-tight">{t("title")}</h1>
       <GamesList />
     </div>
   );
