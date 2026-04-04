@@ -13,7 +13,7 @@ export function GameField({
   const isInteractive = game.status === "inProgress";
 
   return (
-    <div className="grid grid-cols-3">
+    <div className="grid grid-cols-3 gap-1">
       {game.field.map((symbol, index) => {
         const isWinning = winningLine?.includes(index) ?? false;
         return (
@@ -21,7 +21,7 @@ export function GameField({
             onClick={() => onCellClick?.(index)}
             key={index}
             disabled={!isInteractive || symbol !== null}
-            className={`border border-primary w-20 h-20 text-2xl flex justify-center items-center disabled:opacity-60 disabled:cursor-not-allowed ${isWinning ? "bg-green-200 dark:bg-green-800 font-bold" : ""}`}
+            className={`border border-border rounded-md w-20 h-20 text-2xl flex justify-center items-center disabled:opacity-60 disabled:cursor-not-allowed ${isWinning ? "bg-green-200 dark:bg-green-800 font-bold" : ""}`}
           >
             {symbol ?? ""}
           </button>
