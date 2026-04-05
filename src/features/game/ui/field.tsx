@@ -21,9 +21,14 @@ export function GameField({
             onClick={() => onCellClick?.(index)}
             key={index}
             disabled={!isInteractive || symbol !== null}
-            className={`border border-border rounded-md w-20 h-20 text-2xl flex justify-center items-center transition-colors disabled:opacity-60 disabled:cursor-not-allowed enabled:hover:bg-accent ${isWinning ? "bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300 border-emerald-400 dark:border-emerald-600 font-bold" : ""}`}
+            className={`border border-border rounded-md w-20 h-20 text-2xl font-bold flex justify-center items-center transition-colors disabled:cursor-not-allowed enabled:hover:bg-accent ${isWinning ? "bg-emerald-100 dark:bg-emerald-900 border-emerald-400 dark:border-emerald-600" : ""}`}
           >
-            {symbol ?? ""}
+            {symbol === "X" && (
+              <span className={isWinning ? "text-emerald-700 dark:text-emerald-300" : "text-blue-500 dark:text-blue-400"}>X</span>
+            )}
+            {symbol === "O" && (
+              <span className={isWinning ? "text-emerald-700 dark:text-emerald-300" : "text-rose-500 dark:text-rose-400"}>O</span>
+            )}
           </button>
         );
       })}
