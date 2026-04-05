@@ -21,11 +21,14 @@ export default async function PrivateLayout({
   return (
     <div className="flex flex-col grow">
       <header className="sticky top-0 z-10 px-10 py-4 flex flex-row gap-4 justify-between border-b border-b-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 items-center">
-        <div className="text-xl font-bold tracking-tight">Tik-tak-toe-online</div>
+        <div className="flex items-center gap-2">
+          <span className="text-2xl leading-none">🎮</span>
+          <span className="text-xl font-bold tracking-tight">Tik-tak-toe</span>
+        </div>
         <div className="flex gap-4 items-center">
           <LocaleSwitcher />
           <ThemeToggle />
-          <div className="text-lg">{session.login}</div>
+          <div className="text-sm font-medium px-3 py-1.5 rounded-full bg-muted text-muted-foreground">{session.login}</div>
           <form
             action={async () => {
               "use server";
