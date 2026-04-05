@@ -7,7 +7,7 @@ export default async function Page({
 }) {
   const { id } = await params;
   return (
-    <main className="flex flex-col grow pt-24 w-full max-w-[400px] mx-auto">
+    <main className="flex flex-col grow justify-center py-8 w-full max-w-[400px] mx-auto">
       <Game gameId={id} />
     </main>
   );
