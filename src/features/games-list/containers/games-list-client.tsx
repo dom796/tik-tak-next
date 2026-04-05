@@ -22,18 +22,26 @@ export function GamesListClient({
 
   return (
     <Layout actions={<CreateButton />}>
-      {gamesStream.map((game) => (
-        <GameCard
-          key={game.id}
-          login={game.creator.login}
-          rating={game.creator.rating}
-          actions={
-            <Link href={routes.game(game.id)}>
-              <Button>{t("join")}</Button>
-            </Link>
-          }
-        />
-      ))}
+      {gamesStream.length === 0 ? (
+        <div className="col-span-full flex flex-col items-center justify-center py-16 text-center text-muted-foreground gap-2">
+          <span className="text-4xl">🎮</span>
+          <p className="text-base font-medium">{t("noGames")}</p>
+          <p className="text-sm">{t("noGamesHint")}</p>
+        </div>
+      ) : (
+        gamesStream.map((game) => (
+          <GameCard
+            key={game.id}
+            login={game.creator.login}
+            rating={game.creator.rating}
+            actions={
+              <Link href={routes.game(game.id)}>
+                <Button>{t("join")}</Button>
+              </Link>
+            }
+          />
+        ))
+      )}
     </Layout>
   );
 }

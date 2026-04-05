@@ -31,7 +31,9 @@
     "oneGameLimit": "You can only create one game",
     "userNotFound": "User not found",
     "gameWith": "Game with {login}",
-    "rating": "Rating: {rating}"
+    "rating": "Rating: {rating}",
+    "noGames": "No games available",
+    "noGamesHint": "Be the first — create a new game!"
   },
   "game": {
     "gameTitle": "Tic-Tac-Toe 3x3",

@@ -31,7 +31,9 @@
     "oneGameLimit": "Вы можете создать только одну игру",
     "userNotFound": "Пользователь не найден",
     "gameWith": "Игра с {login}",
-    "rating": "Рейтинг: {rating}"
+    "rating": "Рейтинг: {rating}",
+    "noGames": "Нет доступных игр",
+    "noGamesHint": "Будьте первым — создайте новую игру!"
   },
   "game": {
     "gameTitle": "Крестики-нолики 3x3",
