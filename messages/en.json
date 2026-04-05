@@ -25,6 +25,7 @@
   },
   "games": {
     "title": "Games",
+    "subtitle": "Join an existing game or create your own",
     "createGame": "Create Game",
     "join": "Join",
     "oneGameLimit": "You can only create one game",
