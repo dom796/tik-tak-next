@@ -8,7 +8,16 @@ export function GameStatus({ game }: { game: GameDomain.GameEntity }) {
 
   switch (game.status) {
     case "idle":
-      return <div className="text-lg text-muted-foreground rounded-md bg-muted/50 px-3 py-2 text-center">{t("waitingForPlayer")}</div>;
+      return (
+        <div className="text-lg text-muted-foreground rounded-md bg-muted/50 px-3 py-2 flex items-center justify-center gap-2">
+          <span className="flex gap-0.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/60 animate-bounce [animation-delay:-0.3s]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/60 animate-bounce [animation-delay:-0.15s]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/60 animate-bounce" />
+          </span>
+          {t("waitingForPlayer")}
+        </div>
+      );
     case "inProgress": {
       const currentSymbol = GameDomain.getGameCurrentSymbol(game);
       const currentPlayer = currentSymbol === GameDomain.GameSymbol.X ? game.players[0] : game.players[1];
