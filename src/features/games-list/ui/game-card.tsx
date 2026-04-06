@@ -21,7 +21,7 @@ export function GameCard({
 }) {
   const t = useTranslations("games");
   return (
-    <Card className="transition-shadow hover:shadow-md">
+    <Card className="transition-shadow hover:shadow-md flex flex-col justify-between">
       <CardHeader className="pb-2">
         <CardTitle className="text-base font-semibold">{t("gameWith", { login })}</CardTitle>
       </CardHeader>
