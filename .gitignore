@@ -25,6 +25,7 @@
 *.pem
 .idea
 /docs
+.superpowers
 
 # debug
 npm-debug.log*
