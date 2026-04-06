@@ -23,7 +23,7 @@ export function GameStatus({ game }: { game: GameDomain.GameEntity }) {
       );
     }
     case "gameOver": {
-      return <div className="text-lg font-semibold text-emerald-600 dark:text-emerald-400 rounded-md bg-emerald-50 dark:bg-emerald-950/30 px-3 py-2 text-center">{t("winnerLogin", { login: game.winner.login })}</div>;
+      return <div className="text-lg font-semibold text-emerald-600 dark:text-emerald-400 rounded-md bg-emerald-50 dark:bg-emerald-950/30 px-3 py-2 text-center flex items-center justify-center gap-2"><span>🏆</span>{t("winnerLogin", { login: game.winner.login })}</div>;
     }
     case "gameOverDraw":
       return <div className="text-lg font-medium text-muted-foreground rounded-md bg-muted/50 px-3 py-2 text-center">{t("draw")}</div>;
