@@ -30,12 +30,12 @@ export function GameClient({
   const winningLine = game.status === "gameOver" ? GameDomain.getWinningLine(game.field) : null;
 
   const leaveButton = isCreator ? (
-    <Button variant="destructive" onClick={cancel} disabled={isPendingCancel}>
-      {t("cancelGame")}
+    <Button variant="destructive" onClick={cancel} disabled={isPendingCancel} className="min-w-[120px]">
+      {isPendingCancel ? "..." : t("cancelGame")}
     </Button>
   ) : isActiveParticipant ? (
-    <Button variant="destructive" onClick={surrender} disabled={isPendingSurrender}>
-      {t("leaveGame")}
+    <Button variant="destructive" onClick={surrender} disabled={isPendingSurrender} className="min-w-[120px]">
+      {isPendingSurrender ? "..." : t("leaveGame")}
     </Button>
   ) : undefined;
 
