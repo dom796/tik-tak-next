@@ -12,14 +12,14 @@ export function GamePlayers({ game }: { game: GameDomain.GameEntity }) {
         <span className="font-bold text-lg text-blue-500 dark:text-blue-400 w-5">X</span>
         <div className="flex flex-col">
           <span className="font-medium leading-tight">{firstPlayer.login}</span>
-          <span className="text-xs text-muted-foreground">{firstPlayer.rating}</span>
+          <span className="text-xs text-amber-500 font-medium">★ {firstPlayer.rating}</span>
         </div>
       </div>
       <span className="text-xs font-bold text-muted-foreground px-2 py-0.5 rounded-full border border-border">VS</span>
       <div className="flex items-center gap-2 justify-end">
         <div className="flex flex-col items-end">
           <span className="font-medium leading-tight">{secondPlayer?.login ?? "..."}</span>
-          <span className="text-xs text-muted-foreground">{secondPlayer?.rating ?? "..."}</span>
+          <span className="text-xs text-amber-500 font-medium">{secondPlayer ? `★ ${secondPlayer.rating}` : "..."}</span>
         </div>
         <span className="font-bold text-lg text-rose-500 dark:text-rose-400 w-5 text-right">O</span>
       </div>
