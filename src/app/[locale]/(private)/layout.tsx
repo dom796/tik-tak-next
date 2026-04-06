@@ -3,7 +3,7 @@ import { Button } from "@/shared/ui/button";
 import { ThemeToggle } from "@/shared/ui/theme-toggle";
 import { LocaleSwitcher } from "@/shared/ui/locale-switcher";
 import { redirect } from "next/navigation";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import React from "react";
 
 export default async function PrivateLayout({
@@ -16,6 +16,7 @@ export default async function PrivateLayout({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const t = await getTranslations("common");
   const { session } = await sessionService.verifySession();
 
   return (
@@ -36,7 +37,7 @@ export default async function PrivateLayout({
               redirect("/");
             }}
           >
-            <Button>Sign out</Button>
+            <Button>{t("signOut")}</Button>
           </form>
         </div>
       </header>
