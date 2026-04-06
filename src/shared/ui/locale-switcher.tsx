@@ -14,6 +14,8 @@ export function LocaleSwitcher() {
         <button
           key={l}
           onClick={() => router.replace(pathname, { locale: l })}
+          title={l === "en" ? "English" : "Русский"}
+          aria-label={l === "en" ? "Switch to English" : "Переключить на русский"}
           className={
             locale === l
               ? "font-semibold px-2.5 py-1 rounded-md border border-border bg-muted"
