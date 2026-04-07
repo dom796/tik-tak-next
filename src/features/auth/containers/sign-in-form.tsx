@@ -4,7 +4,7 @@ import { AuthFormLayout } from "../ui/auth-form-layout";
 import { AuthFields } from "../ui/fields";
 import { SubmitButton } from "../ui/submit-button";
 import { BottomLink } from "../ui/link";
-import { ErrorMessage } from "../ui/submit-button copy";
+import { ErrorMessage } from "../ui/error-message";
 import { signInAction, SignInFormState } from "../actions/sing-in";
 import { useActionState } from "@/shared/lib/react";
 import { routes } from "@/kernel/routes";
