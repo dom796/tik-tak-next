@@ -43,7 +43,7 @@ export type PlayerEntity = {
 };
 
 export type Field = (GameSymbol | null)[];
-export type GameSymbol = string;
+export type GameSymbol = "X" | "O";
 
 export const GameSymbol = {
   X: "X",
