@@ -16,10 +16,14 @@ const gameInclude = {
   players: { include: { user: true } },
 };
 
-async function gamesList(where?: Prisma.GameWhereInput): Promise<GameEntity[]> {
+async function gamesList(
+  where?: Prisma.GameWhereInput,
+  limit?: number,
+): Promise<GameEntity[]> {
   const games = await prisma.game.findMany({
     where,
     include: gameInclude,
+    take: limit,
   });
 
   return games.map(dbGameToGameEntity);
