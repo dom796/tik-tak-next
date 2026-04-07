@@ -90,7 +90,7 @@ export const doStep = ({
   }
 
   if (game.field[index]) {
-    return left("game-cell-allready-has-symbol");
+    return left("game-cell-already-has-symbol");
   }
 
   const newField = game.field.map((cell, i) =>
