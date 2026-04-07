@@ -5,7 +5,7 @@ import { AuthFields } from "../ui/fields";
 import { SubmitButton } from "../ui/submit-button";
 import { BottomLink } from "../ui/link";
 import { ErrorMessage } from "../ui/error-message";
-import { signInAction, SignInFormState } from "../actions/sing-in";
+import { signInAction, SignInFormState } from "../actions/sign-in";
 import { useActionState } from "@/shared/lib/react";
 import { routes } from "@/kernel/routes";
 import { useTranslations } from "next-intl";
