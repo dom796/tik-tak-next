@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
-import { ThemeProvider } from "@/shared/ui/theme-provider";
 import { routing } from "@/i18n/routing";
+import { DEFAULT_THEME, THEME_COOKIE, type Theme } from "@/shared/lib/theme";
+import { cookies } from "next/headers";
 import "../globals.css";
 
 const geistSans = localFont({
@@ -36,14 +37,17 @@ export default async function LocaleLayout({
   const { locale } = await params;
   setRequestLocale(locale);
   const messages = await getMessages();
+  const cookieStore = await cookies();
+  const themeCookie = cookieStore.get(THEME_COOKIE)?.value;
+  const theme: Theme = themeCookie === "light" || themeCookie === "dark" ? themeCookie : DEFAULT_THEME;
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={theme}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider>{children}</ThemeProvider>
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>

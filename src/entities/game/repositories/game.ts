@@ -163,7 +163,10 @@ export const dbPlayerToPlayer = (
 };
 
 async function deleteGame(gameId: GameId) {
-  await prisma.game.delete({ where: { id: gameId } });
+  await prisma.$transaction([
+    prisma.gamePlayer.deleteMany({ where: { gameId } }),
+    prisma.game.delete({ where: { id: gameId } }),
+  ]);
 }
 
 export const gameRepository = {

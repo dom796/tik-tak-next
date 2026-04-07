@@ -47,7 +47,7 @@ export function useGame(gameId: GameId, player: GameDomain.PlayerEntity) {
     setIsPendingCancel(true);
     startTransition(async () => {
       const result = await cancelGameAction({ gameId });
-      if (result.type === "right") {
+      if (result.type === "right" || result.value === "game-not-found") {
         router.push("/");
       } else {
         setIsPendingCancel(false);

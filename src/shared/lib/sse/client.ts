@@ -7,6 +7,8 @@ export function useEventsSource<T>(url: string, onData?: (data: T) => void) {
   const [data, setData] = useState<T>();
   const [error, setError] = useState<unknown | undefined>();
   const reconnectTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const onDataRef = useRef(onData);
+  useEffect(() => { onDataRef.current = onData; });
 
   useEffect(() => {
     let closed = false;
@@ -21,7 +23,7 @@ export function useEventsSource<T>(url: string, onData?: (data: T) => void) {
           const parsed = JSON.parse(message.data);
           setError(undefined);
           setData(parsed);
-          onData?.(parsed);
+          onDataRef.current?.(parsed);
           setIsPending(false);
         } catch (e) {
           setError(e);
@@ -48,7 +50,7 @@ export function useEventsSource<T>(url: string, onData?: (data: T) => void) {
       }
       source?.close();
     };
-  }, [url, onData]);
+  }, [url]);
 
   return {
     dataStream: data,
