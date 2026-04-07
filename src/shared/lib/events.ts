@@ -32,7 +32,7 @@ export class EventsChannel {
     );
   }
 
-  async concume(
+  async consume(
     key: string,
     listener: (data: unknown) => Promise<void> | void,
   ) {

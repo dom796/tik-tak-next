@@ -17,12 +17,12 @@ class GameEventsService {
     gameId: GameId,
     listener: (event: GameChanged) => void,
   ) {
-    return this.eventsChanel.concume(gameId, (data) => {
+    return this.eventsChanel.consume(gameId, (data) => {
       listener(data as GameChanged);
     });
   }
   async addGameCreatedListener(listener: (event: GameCreated) => void) {
-    return this.eventsChanel.concume(`game-created`, (data) => {
+    return this.eventsChanel.consume(`game-created`, (data) => {
       listener(data as GameCreated);
     });
   }
