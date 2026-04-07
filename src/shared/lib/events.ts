@@ -1,7 +1,7 @@
 import amqplib, { ChannelModel, ConsumeMessage } from "amqplib";
 
 let connection: ChannelModel | undefined = undefined;
-export class EventsChanel {
+export class EventsChannel {
   constructor(private channelName: string) {}
 
   async createChannel() {

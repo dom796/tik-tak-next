@@ -1,6 +1,6 @@
 import { GameDomain } from "@/entities/game";
 import { GameId } from "@/kernel/ids";
-import { EventsChanel } from "@/shared/lib/events";
+import { EventsChannel } from "@/shared/lib/events";
 
 type GameChanged = {
   type: "game-changed";
@@ -12,7 +12,7 @@ type GameCreated = {
 type GameEvent = GameChanged | GameCreated;
 
 class GameEventsService {
-  eventsChanel = new EventsChanel("game");
+  eventsChanel = new EventsChannel("game");
   async addGameChangedListener(
     gameId: GameId,
     listener: (event: GameChanged) => void,
