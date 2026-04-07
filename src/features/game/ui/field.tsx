@@ -18,6 +18,7 @@ export function GameField({
         const isWinning = winningLine?.includes(index) ?? false;
         return (
           <button
+            type="button"
             onClick={() => onCellClick?.(index)}
             key={index}
             disabled={!isInteractive || symbol !== null}

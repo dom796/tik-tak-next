@@ -26,6 +26,7 @@ export function AuthFields({
           id={loginId}
           type="text"
           name="login"
+          autoComplete="username"
           placeholder={t("loginPlaceholder")}
           required
           defaultValue={formData?.get("login")?.toString()}
@@ -38,6 +39,7 @@ export function AuthFields({
           id={passwordId}
           type="password"
           name="password"
+          autoComplete="current-password"
           placeholder={t("passwordPlaceholder")}
           required
           defaultValue={formData?.get("password")?.toString()}
