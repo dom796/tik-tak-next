@@ -24,7 +24,7 @@ export function AuthFields({
         <Label htmlFor={loginId}>{t("loginLabel")}</Label>
         <Input
           id={loginId}
-          type="login"
+          type="text"
           name="login"
           placeholder={t("loginPlaceholder")}
           required
