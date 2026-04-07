@@ -45,6 +45,11 @@ export type PlayerEntity = {
 export type Field = (GameSymbol | null)[];
 export type GameSymbol = "X" | "O";
 
+export const GameError = {
+  NOT_PLAYER_SYMBOL: "not-player-symbol",
+  CELL_ALREADY_HAS_SYMBOL: "game-cell-already-has-symbol",
+} as const;
+
 export const GameSymbol = {
   X: "X",
   O: "O",
@@ -86,11 +91,11 @@ export const doStep = ({
   const currentSymbol = getGameCurrentSymbol(game);
 
   if (currentSymbol !== getPlayerSymbol(player, game)) {
-    return left("not-player-symbol");
+    return left(GameError.NOT_PLAYER_SYMBOL);
   }
 
   if (game.field[index]) {
-    return left("game-cell-already-has-symbol");
+    return left(GameError.CELL_ALREADY_HAS_SYMBOL);
   }
 
   const newField = game.field.map((cell, i) =>
