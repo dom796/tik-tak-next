@@ -22,8 +22,6 @@ async function gamesList(where?: Prisma.GameWhereInput): Promise<GameEntity[]> {
     include: gameInclude,
   });
 
-  games.map((game) => game.players.map((p) => p.user));
-
   return games.map(dbGameToGameEntity);
 }
 
